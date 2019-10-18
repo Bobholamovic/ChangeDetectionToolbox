@@ -9,22 +9,23 @@ classdef KMeans < ThreAlgs.ThreAlg
                 obj.params = varargin;
             end
         end
-        function seg_map = segment(obj, change_map)
-            % Deals with double data
-            if (ndims(change_map) ~= 3)
-                error('Handles only three-dimensional inputs');
-            end
+        function CM = segment(obj, DI)
             % Reshape
-            [rows, cols] = size(change_map(:, :, 1));
+            [rows, cols, chns] = size(DI);
             % Explicitly convert to double type before calling kmeans
-            cdMapReshaped = reshape(double(change_map), rows*cols, 3);
+            cdMapReshaped = reshape(double(DI), rows*cols, chns);
             % k is set to 2 with respcet to binary change detection
             % Note that the category with more pixels are deemed unchanged
-            seg_map = uint8(reshape(kmeans(cdMapReshaped, 2, obj.params), rows, cols));
-            if sum(seg_map(:)==1) > (rows*cols/2)
-                seg_map = (seg_map == 2);
+            CM = uint8(reshape(kmeans(cdMapReshaped, 2, obj.params{:}), rows, cols));
+            
+            % Determine the foreground and background pixels according to
+            % class average value
+            meanCDMap = mean(DI, 3);
+            if mean(meanCDMap(CM==1)) < mean(meanCDMap(CM==2))
+                % 1 for change and 0 for unchange
+                CM = (CM==2);
             else
-                seg_map = (seg_map == 1);
+                CM = (CM==1);
             end
         end
     end

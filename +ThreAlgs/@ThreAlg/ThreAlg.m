@@ -3,6 +3,6 @@ classdef (Abstract) ThreAlg
         algName = '';
     end
     methods (Abstract)
-        seg_map = segment(obj, change_map);
+        CM = segment(obj, DI);
     end
 end

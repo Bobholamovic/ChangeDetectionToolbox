@@ -7,11 +7,11 @@ classdef FixedThre < ThreAlgs.ThreAlg
             obj.algName = 'Segmentation using a fixed threshold';
             obj.thre = thre;
         end
-        function seg_map = segment(obj, change_map)
-            if size(change_map, 3) > 1
-                cdMap2d = mean(change_map, 3);
+        function CM = segment(obj, DI)
+            if size(DI, 3) > 1
+                cdMap2d = mean(DI, 3);
             end
-            seg_map = (cdMap2d > obj.thre);
+            CM = (cdMap2d > obj.thre);
         end
     end
 end

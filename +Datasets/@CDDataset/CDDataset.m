@@ -23,8 +23,12 @@ classdef (Abstract) CDDataset < handle
             obj.initFileSys();
             
             % A simple check
-            if ~isempty(obj.t1List) && ~exist(obj.t1List{1}, 'file')
-                error('Please check the dataset directory');
+            if ~isempty(obj.t1List) && (...
+                    (ischar(obj.t1List{1}) && ~exist(obj.t1List{1}, 'file')) ...
+                    || ...
+                    (iscell(obj.t1List{1}) && ~exist(obj.t1List{1}{1}, 'file'))...
+                    )
+                error('Please check the validaty of the data directory');
             end
             
             % Set default loaders

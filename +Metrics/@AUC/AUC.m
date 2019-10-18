@@ -9,21 +9,30 @@ classdef AUC < Metrics.CDMetric
             % The implementation refers to this blog
             % https://www.cnblogs.com/huadongw/p/5495004.html
             if size(cd_map, 3) > 1
+                % Average pooling
                 cdMap2d = mean(cd_map, 3);
+            else
+                cdMap2d = cd_map;
+            end
+            if size(label, 3) > 1
+                [ref, mask] = obj.combineRefs(label);
+                cdMap2d = cdMap2d(mask);
+                ref = logical(ref(mask));
+            else
+                ref = label;
             end
             [~, idcs] = sort(cdMap2d(:), 'descend');
-            labelSorted = label(idcs);
+            labelSorted = ref(idcs);
             obj.fprs = cumsum(~labelSorted) / sum(~labelSorted);
             obj.tprs = cumsum(labelSorted) / sum(labelSorted);
             % Approximate the value of the definite integral
             auc = sum(diff(obj.fprs) .* obj.tprs(2:end));
         end
         
-        function ax = plotROC(obj, varargin)
+        function fig = plotROC(obj, varargin)
             % Note that this method has to be invoked after obj.update is
             % called
-            figure('Name', 'ROC Curve'), 
-            ax = axes; 
+            fig = figure('Name', 'ROC Curve');
             grid on, 
             title(sprintf('AUC=%.2f%%', obj.val(end))), 
             xlabel('FPR'), 

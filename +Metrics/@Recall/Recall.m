@@ -1,6 +1,7 @@
 classdef Recall < Metrics.CDMetric
     methods
         function obj = Recall()
+            % Producer's accuracy
             obj@Metrics.CDMetric();
         end
     end

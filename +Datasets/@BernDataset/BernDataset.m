@@ -3,7 +3,7 @@ classdef BernDataset < Datasets.CDDataset
         function obj = BernDataset(data_path)
             obj@Datasets.CDDataset(data_path);
             
-            obj.refStr = 'Bern';
+            obj.refStr = 'Bern SAR';
             
             loader_ = @Datasets.Loaders.tiffLoader;
             obj.loaders.t1 = loader_;

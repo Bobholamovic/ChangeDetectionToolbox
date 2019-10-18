@@ -1,4 +1,4 @@
-classdef FMeasure < Metrics.Recall & Metrics.OA  
+classdef FMeasure < Metrics.Recall & Metrics.UA  
     properties (Access=public)
         alpha = 1;
     end
@@ -12,16 +12,16 @@ classdef FMeasure < Metrics.Recall & Metrics.OA
                 object.alpha = varargin{1};
             end
             obj@Metrics.Recall();
-            obj@Metrics.OA();
+            obj@Metrics.UA();
         end
     end
     
     methods (Access=public)
         function score = gauge(obj, pred, gnd, ~)
-            recall = gauge@Metrics.Recall(obj, pred, gnd);
-            oa = gauge@Metrics.OA(obj, pred, gnd);
+            pa = gauge@Metrics.Recall(obj, pred, gnd);
+            ua = gauge@Metrics.UA(obj, pred, gnd);
             alpha2 = obj.alpha.^2;
-            score = ((alpha2+1) .* oa .* recall) ./ (alpha2 .* (oa+recall));
+            score = ((alpha2+1) .* ua .* pa) ./ (alpha2 .* (ua+pa)+eps);
         end
     end
 end

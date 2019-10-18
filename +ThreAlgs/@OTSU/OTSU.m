@@ -1,29 +1,29 @@
 classdef OTSU < ThreAlgs.ThreAlg
+    properties
+        mergeType = 0;   % 0 for average pooling, 1 for Euclidean distance
+    end
     methods
-        function obj = OTSU()
+        function obj = OTSU(merge_type)
             obj.algName = 'OTSU';
+            if exist('merge_type', 'var'), obj.mergeType = merge_type; end
         end
-        function seg_map = segment(obj, change_map)
+        function CM = segment(obj, DI)
+            import Utilities.normMinMax
             % Deals with double type data
-            if ndims(change_map) == 2
-                changeMap2d = obj.normMinMax(change_map);
-            elseif ndims(change_map) == 3
-                % Channel-wise mean
-                changeMap2d = obj.normMinMax(mean(change_map, 3));
+            if ndims(DI) == 2
+                changeMap2d = normMinMax(DI);
+            elseif ndims(DI) == 3
+                if obj.mergeType == 0
+                    changeMap2d = Utilities.mergeAvg(DI);
+                else
+                    changeMap2d = Utilities.mergeEucl(DI);
+                end
+                changeMap2d = normMinMax(changeMap2d);
             else
                 error('Handles only 2 or 3 dimensional inputs');
             end
             thre = graythresh(changeMap2d);
-            seg_map = imbinarize(changeMap2d, thre);
-        end
-    end
-    
-    methods(Static)
-        function im_normed = normMinMax(change_map)
-            % Double in and uint8 out
-            maxVal = max(change_map(:));
-            minVal = min(change_map(:));
-            im_normed = uint8((change_map-minVal)./(maxVal-minVal) * 255);
+            CM = imbinarize(changeMap2d, thre);
         end
     end
 end

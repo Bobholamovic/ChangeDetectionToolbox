@@ -1,15 +1,12 @@
-classdef OA < Metrics.CDMetric   
-    methods
-        function obj = OA()
-            obj@Metrics.CDMetric();
-        end
-    end
-    
+classdef OA < Metrics.CDMetric 
+    % Overall accuracy
     methods (Access=public)
-        function precision = gauge(obj, pred, gnd, ~)
-            TP = Metrics.CDMetric.getTP(pred, gnd);
-            FP = Metrics.CDMetric.getFP(pred, gnd);
-            precision = TP ./ (TP + FP);
+        function acc = gauge(obj, pred, gnd, ~)
+            TP = obj.getTP(pred, gnd);
+            FP = obj.getFP(pred, gnd);
+            TN = obj.getTN(pred, gnd);
+            FN = obj.getFN(pred, gnd);
+            acc = (TP + TN) / (TP + TN + FP + FN);
         end
     end
 end

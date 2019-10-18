@@ -1,5 +1,5 @@
 classdef CDDIterator < handle
-    properties(Access=private)
+    properties(Access=protected)
         index_ = 0;
         t1List_;
         t2List_;
@@ -46,9 +46,24 @@ classdef CDDIterator < handle
         
         function [im_t1, im_t2, im_ref] = nextChunk(obj)
             [t1, t2, ref] = next(obj);
-            im_t1 = feval(obj.loaders_.t1, t1);
-            im_t2 = feval(obj.loaders_.t2, t2);
-            im_ref = feval(obj.loaders_.ref, ref);
+            im_t1 = obj.fetch(obj.loaders_.t1, t1);
+            im_t2 = obj.fetch(obj.loaders_.t2, t2);
+            if iscell(ref)
+                im_ref(:,:,1) = feval(obj.loaders_.ref{1}, ref{1});
+                im_ref(:,:,2) = feval(obj.loaders_.ref{2}, ref{2});
+            else
+                im_ref = feval(obj.loaders_.ref, ref);
+            end
+        end
+        
+        function [im] = fetch(obj, loader, p)
+            if iscell(p)
+                for ii = 1:length(p)
+                    im(:,:,ii) = feval(loader, p{ii});
+                end
+            else
+                im = feval(loader, p);
+            end
         end
         
     end

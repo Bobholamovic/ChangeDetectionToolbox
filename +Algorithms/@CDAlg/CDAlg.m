@@ -10,6 +10,6 @@ classdef (Abstract) CDAlg
         end
     end
     methods (Abstract)
-        change_map = detectChange(obj, ~, ~);
+        DI = detectChange(obj, ~, ~);
     end
 end

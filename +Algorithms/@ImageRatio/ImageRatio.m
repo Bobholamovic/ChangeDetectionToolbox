@@ -3,6 +3,6 @@ classdef ImageRatio < Algorithms.CDAlg
         function obj = ImageRatio() 
             obj@Algorithms.CDAlg('Image Ratioing', '')
         end
-        change_map = detectChange(obj, ~, ~);
+        DI = detectChange(obj, ~, ~);
     end
 end
