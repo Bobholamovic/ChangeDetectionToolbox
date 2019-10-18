@@ -1,11 +1,11 @@
 %% Main script
-% clear all, close all;
+clear all, close all;
 
 %% Global options
-GO_SHOW_CHANGE = false;
+GO_SHOW_CHANGE = true;
 GO_SHOW_MASK = true;
 GO_SHOW_PRETTIFIED = true;
-GO_SHOW_ROC_CURVE = false;
+GO_SHOW_ROC_CURVE = true;
 
 GO_BAND_PRE_NORM = false;
 
@@ -32,7 +32,7 @@ PAUSE_EACH_ITER_ = GO_SHOW_CHANGE | GO_SHOW_MASK | GO_SHOW_PRETTIFIED | GO_SHOW_
 
 	Available metrics: Acc, AUC, CDMetric, FMeasure, OA, Recall
 %}
-ALG = 'PCDA'
+ALG = 'MAD'
 DATASET = 'TaizhouDataset'
 THRE_ALG = 'KMeans'
 METRICS = {'OA', 'UA', 'Recall', 'FMeasure', 'AUC', 'Kappa'}

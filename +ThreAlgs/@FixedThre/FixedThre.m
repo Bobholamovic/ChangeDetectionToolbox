@@ -9,7 +9,7 @@ classdef FixedThre < ThreAlgs.ThreAlg
         end
         function CM = segment(obj, DI)
             if size(DI, 3) > 1
-                cdMap2d = mean(DI, 3);
+                cdMap2d = Utilities.mergeAvg(DI);
             end
             CM = (cdMap2d > obj.thre);
         end

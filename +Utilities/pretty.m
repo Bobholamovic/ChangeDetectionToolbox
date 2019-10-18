@@ -8,7 +8,7 @@ function im_clr = pretty(cd_map, seg_map, ref_map, palette)
     end
     
     if size(cd_map, 3) ~= 3
-        im_clr = repmat(mean(cd_map, 3), 1, 1, 3);
+        im_clr = repmat(Utilities.mergeAvg(cd_map), 1, 1, 3);
     else
         im_clr = cd_map;
     end

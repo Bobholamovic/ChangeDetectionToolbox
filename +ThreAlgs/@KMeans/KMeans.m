@@ -20,7 +20,7 @@ classdef KMeans < ThreAlgs.ThreAlg
             
             % Determine the foreground and background pixels according to
             % class average value
-            meanCDMap = mean(DI, 3);
+            meanCDMap = Utilities.mergeAvg(DI);
             if mean(meanCDMap(CM==1)) < mean(meanCDMap(CM==2))
                 % 1 for change and 0 for unchange
                 CM = (CM==2);
