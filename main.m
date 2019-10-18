@@ -55,17 +55,14 @@ if GO_SHOW_ROC_CURVE
 end
 
 %% Construct objects
-% This might be unsafe, yet can't think of a better way
-% I should read some docs on the introspection machenism
-constrStr = @(pkg, cls, con) [pkg, '.', cls, '(', con, '{:})']; % var{:} can be seen as kinda unpacking?
-alg = eval(constrStr('Algorithms', ALG, 'CONFIG_ALG'));
-dataset = eval(constrStr('Datasets', DATASET, 'CONFIG_DATASET'));
+alg = Algorithms.(ALG)(CONFIG_ALG{:});
+dataset = Datasets.(DATASET)(CONFIG_DATASET{:});
 iterDS = Datasets.CDDIterator(dataset);
-threAlg = eval(constrStr('ThreAlgs', THRE_ALG, 'CONFIG_THRE_ALG'));
+threAlg = ThreAlgs.(THRE_ALG)(CONFIG_THRE_ALG{:});
 nMetrics = length(METRICS);
 metrics = cell(1, nMetrics);
 for ii = 1:nMetrics
-    metrics{ii} = eval(constrStr('Metrics', METRICS{ii}, 'CONFIG_METRICS{ii}'));
+    metrics{ii} = Metrics.(METRICS{ii})(CONFIG_METRICS{ii}{:});
 end
                 
 %% Main loop
@@ -147,7 +144,7 @@ end
 %% Collate and save results
 results = struct('name', alg.algName, 'threAlg', threAlg.algName, 'dataset', DATASET);
 for ii = 1:nMetrics
-    results = setfield(results, METRICS{ii}, metrics{ii}.avg);
+    results.(METRICS{ii}) = metrics{ii}.avg;
 end
 
 if GO_SAVE_RESULTS
