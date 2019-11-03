@@ -2,17 +2,17 @@
 clear all, close all;
 
 %% Global options
-GO_SHOW_CHANGE = true;
-GO_SHOW_MASK = true;
-GO_SHOW_PRETTIFIED = true;
-GO_SHOW_ROC_CURVE = true;
+GO_SHOW_CHANGE = true;	% Show the difference image (DI)
+GO_SHOW_MASK = true;	% Show the change map (CM)
+GO_SHOW_PRETTIFIED = true;	% Show the prettified detection results
+GO_SHOW_ROC_CURVE = true;	% Plot the ROC curve
 
-GO_BAND_PRE_NORM = false;
+GO_BAND_PRE_NORM = false;	% Perform a band-wise pre-normalization on the inputs
 
 GO_CONFIG_ROC = {};
 GO_VERBOSE = true;
 GO_SAVE_RESULTS = false;
-GO_OUT_FILE_PATH = './results.mat';
+GO_OUT_FILE_PATH = './results.mat';		% Path to save the results
 
 % PAUSE MODES:
 % -1: resume next iteration when all figures closed; 
@@ -23,14 +23,13 @@ PAUSE_EACH_ITER_ = GO_SHOW_CHANGE | GO_SHOW_MASK | GO_SHOW_PRETTIFIED | GO_SHOW_
 
 %% Opt and configure the IMPORTANT ones
 %{
-	Available algorithms: CVA, DPCA, ImageDiff, ImageRatio, Image Regr,
-	IRMAD, KPCA, MAD, MBPCA, PCDA
+	Available algorithms: CVA, DPCA, ImageDiff, ImageRatio, ImageRegr, IRMAD, MAD, PCAkMeans, PCDA
 
-	Available datasets: BernDataset, TaizhouDataset
+	Available datasets: AirChangeDataset, BernDataset, OSCDDataset, OttawaDataset, TaizhouDataset
 
 	Available binarization algorithms: FixedThre, KMeans, OTSU
 
-	Available metrics: Acc, AUC, CDMetric, FMeasure, OA, Recall
+	Available metrics: AUC, FMeasure, Kappa, OA, Recall, UA
 %}
 ALG = 'MAD'
 DATASET = 'TaizhouDataset'
@@ -38,11 +37,7 @@ THRE_ALG = 'KMeans'
 METRICS = {'OA', 'UA', 'Recall', 'FMeasure', 'AUC', 'Kappa'}
 
 CONFIG_ALG = {};
-% CONFIG_DATASET = {'E:\科研资料\参考资料\解亚超\数据\Ottawa'};
-% CONFIG_DATASET = {'D:\\data\\CD\\OSCD\\OSCDDataset'};
-% CONFIG_DATASET = {'D:\\data\\CD\\Air Change dataset\\SZTAKI_AirChange_Benchmark'};
 CONFIG_DATASET = {'E:\\科研资料\\项目\\变化监测\\Change Detection Code\\data\\Taizhou'};
-% CONFIG_DATASET = {'E:\\科研资料\\参考资料\\解亚超\\数据\\Bern'};
 CONFIG_THRE_ALG = {};
 CONFIG_METRICS = {{}, {}, {}, {}, {}, {}};
 
