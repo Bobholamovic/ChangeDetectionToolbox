@@ -4,18 +4,18 @@ This repository includes a `MATLAB` toolbox for **remote sensing change detectio
 
 ## Overview
 
-Generally, a typical RSCD process can be divided into four steps, namely image pre-processing, change detection, binarization (thresholding) and accuracy evaluation. Currently, the toolbox is mainly based on the final three steps. For ease of usage and maintenance, the toolbox adopted modular design, which was realized by packages and classes in `MATLAB` semantics. 
+Generally, a typical RSCD process can be divided into four steps, namely image pre-processing, change detection, binarization (thresholding) and accuracy evaluation. Currently, the toolbox is mainly based on the final three steps. For ease of usage and maintenance, the toolbox adopted modular design, which was realized by packages and classes in `MATLAB` semantics.
 
 - The `Datasets` package holds several classes of change detection datasets.
 - `Algorithms` collects the change detection methods to yield a difference image.
-- `ThreAlgs` contains `3` common methods for binary segmentation.
-- `Metrics` groups `6` metrics that are frequently used in researches.
+- `ThreAlgs` contains 3 common methods for binary segmentation.
+- `Metrics` groups 6 metrics that are frequently used in researches.
 
 Each of these packages contains replaceable *modules* and the modules from different packages can be freely combined. It is worth mentioning that the modules for pre-processing and post-processing are still under development.
 
 ## Usage
 
-Find the main script `main.m` in the root directory of this repo, and follow the `3` steps below:
+Find the main script `main.m` in the root directory of this repo, and follow the three steps below:
 
 ### Step 1
 
@@ -43,9 +43,9 @@ CONFIG_METRICS = {{'a'}, {}, {}};
 
 ### Step 3
 
-Run the code :rocket:.
+Run the code :rocket:
 
-Here are some visualized results.
+Here are some visualized results
 
 #### difference image
 
@@ -91,7 +91,7 @@ Principal Component Differential Analysis | PCDA | [paper](https://www.researchg
 ### Thresholding Algorithms
 
 Algorithm | Name
-:-:|:-:|:-:
+:-:|:-:
 Using a fixed threshold | FixedThre
 k-Means clustering | KMeans
 Otsu's method | OTSU
