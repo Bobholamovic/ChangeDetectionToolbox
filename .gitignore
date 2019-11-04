@@ -32,3 +32,6 @@ octave-workspace
 
 # mat data
 *.mat
+
+README.md
+.demo/
