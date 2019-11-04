@@ -27,7 +27,7 @@ PAUSE_EACH_ITER_ = GO_SHOW_CHANGE | GO_SHOW_MASK | GO_SHOW_PRETTIFIED | GO_SHOW_
 
 	Available datasets: AirChangeDataset, BernDataset, OSCDDataset, OttawaDataset, TaizhouDataset
 
-	Available binarization algorithms: FixedThre, KMeans, OTSU
+	Available binaryzation algorithms: FixedThre, KMeans, OTSU
 
 	Available metrics: AUC, FMeasure, Kappa, OA, Recall, UA
 %}
@@ -37,7 +37,7 @@ THRE_ALG = 'KMeans'
 METRICS = {'OA', 'UA', 'Recall', 'FMeasure', 'AUC', 'Kappa'}
 
 CONFIG_ALG = {};
-CONFIG_DATASET = {'E:\\科研资料\\项目\\变化监测\\Change Detection Code\\data\\Taizhou'};
+CONFIG_DATASET = {'D:\\data\\CD\\Taizhou'};
 CONFIG_THRE_ALG = {};
 CONFIG_METRICS = {{}, {}, {}, {}, {}, {}};
 
