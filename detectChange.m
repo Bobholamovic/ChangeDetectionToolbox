@@ -1,7 +1,7 @@
 function varargout = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, varargin)
 %detectChange Perform change detection on a given image pair or data folder.
 % 
-% [CM,DI] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, path_t1, path_t2)
+% [CM, DI] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, path_t1, path_t2)
 % 
 % returns the change map CM and the difference image DI. alg_cd specifies the name of the CD
 % algorithm to use, and config_alg_cd is a cell array that contains the arguments to construct
@@ -9,7 +9,7 @@ function varargout = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_th
 % config_alg_thre being its corresponding configs. path_t1 and path_t2 are the absolute or 
 % relative paths to the input bi-temporal images. 
 %
-% [CM, DI] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, data_dir)
+% [CMs, DIs] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, data_dir)
 % 
 % handles a image folder, which is specified by data_dir. The image folder
 % should be structured as follows:
@@ -18,7 +18,8 @@ function varargout = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_th
 % |     |- t2
 % |     |_ gt
 % where the gt subfolder is optional. t1 contains images acquired at the first time instance
-% while t2 at the second time instance. see Datasets.Folder for more details.
+% while t2 at the second time instance. see Datasets.Folder for more details. Note that the CMs
+% and the DIs will be returned in cell arrays.
 %
 % [CM, DI, results] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, path_t1,
 % path_t2, path_ref, metrics, configs_metrics)
@@ -28,7 +29,7 @@ function varargout = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_th
 % All names ought to be contained in the cell array metrics, and there should also be 
 % configuration cells for each metric, which are nested in the cell configs_metrics. 
 %
-% [CM, DI, results] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, data_dir, 
+% [CMs, DIs, results] = detectChange(alg_cd, config_alg_cd, alg_thre, config_alg_thre, data_dir, 
 % metrics, configs_metrics)
 % 
 % evaluates each image pair in a folder.In this case, the gt subfolder is required.
