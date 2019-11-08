@@ -31,10 +31,22 @@ classdef (Abstract) CDDataset < handle
                 error('Please check the validaty of the data directory');
             end
             
+            % Correspondance check
+            if length(obj.t1List) ~= length(obj.t2List)
+                error('Missing data from Multi-temporal pairs');
+            end
+            
             % Set default loaders
             obj.loaders.t1 = @Datasets.Loaders.defaultLoader;
             obj.loaders.t2 = @Datasets.Loaders.defaultLoader;
-            obj.loaders.ref = @Datasets.Loaders.defaultLoader;
+            % It is legal that there are no GT samples for one dataset
+            if isempty(obj.refList)
+                % Put empty chars
+                obj.refList = repmat({''}, 1, length(obj.t1List));
+                obj.loaders.ref = @Datasets.Loaders.emptyLoader;
+            else
+                obj.loaders.ref = @Datasets.Loaders.defaultLoader;
+            end
         end
     end
     

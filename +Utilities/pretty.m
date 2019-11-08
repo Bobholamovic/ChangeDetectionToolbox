@@ -13,7 +13,7 @@ function im_clr = pretty(cd_map, seg_map, ref_map, palette)
         im_clr = cd_map;
     end
     
-    im_clr = Utilities.normMinMax(im_clr);
+    im_clr = im2uint8(Utilities.normMinMax(im_clr));
     
     ref_map = Utilities.toLogicalMask(ref_map);
     if size(ref_map, 3) > 1
