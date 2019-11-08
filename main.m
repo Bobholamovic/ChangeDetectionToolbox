@@ -12,7 +12,7 @@ GO_BAND_PRE_NORM = false;	% Perform a band-wise pre-normalization on the inputs
 GO_CONFIG_ROC = {};
 GO_VERBOSE = true;
 GO_SAVE_RESULTS = false;
-GO_OUT_FILE_PATH = './results.mat';		% Path to save the results
+GO_OUT_FILE_PATH = './results.xls';		% Path to save the results
 
 % PAUSE MODES:
 % -1: resume next iteration when all figures closed; 
@@ -143,5 +143,13 @@ for ii = 1:nMetrics
 end
 
 if GO_SAVE_RESULTS
-    save(GO_OUT_FILE_PATH, 'results');
+    [~, ~, ext] = fileparts(GO_OUT_FILE_PATH);
+    switch ext
+        case '.mat'
+            save(GO_OUT_FILE_PATH, 'results');
+        case {'.xls', '.xlsx'}
+            writetable(struct2table(results), GO_OUT_FILE_PATH);
+        otherwise
+            error('Unsupported type of file');
+    end
 end
