@@ -13,9 +13,26 @@ Generally, a typical RSCD process can be divided into four steps, namely image p
 
 Each of these packages contains replaceable *modules* and the modules from different packages can be freely combined. It is worth mentioning that the modules for pre-processing and post-processing are still under development.
 
-## Usage
+## Dependencies and Environment
 
-Find the main script `main.m` in the root directory of this repo, and follow the three steps below:
+The toolbox is developed and tested in `MATLAB R2017b`.
+
+## Getting Started
+
+For a quick start, use `detectChange.m`. Here are some examples.
+```MATLAB
+[CM, DI] = detectChange('CVA', {}, 'KMeans', {}, 'data/2000TM', 'data/2003TM')
+
+[CMs, DIs, results] = detectChange('MAD', {}, 'OTSU', {}, '2000TM.tif', '2003TM.tif', 'gt.png', {'AUC', 'UA'}, {{}, {}})
+```
+
+See the usage of `detectChange.m` by
+```MATLAB
+help detectChange
+```
+
+
+To try full functionality, find the main script `main.m` in the root directory of this repo, and follow the three steps below:
 
 ### Step 1
 
@@ -115,9 +132,17 @@ Small yet useful scripts are provided in the `Scripts` folder. For example, `Scr
 
 This toolbox is designed in modules such that you can easily extend it for a specific task. This can be achieved by class inheritance, and the base classes are `Datasets.CDDataset`, `Metrics.CDMetric`, `ThreAlgs.ThreAlg`, and `Algorithms.CDAlg`, of which the class names are clear enough to show the functionality. Details should be depicted in the `Dev Guide`, if there were one.
 
-## Acknowledgement
+## Acknowledgements
 
-Thanks to the [awesome repo](https://github.com/wenhwu/awesome-remote-sensing-change-detection) of [wenhwu](https://github.com/wenhwu), I couldn't have finished my experiments without these carefully collected datasets. Also, I would like to thank Xie Yachao and Xia Yu for their kind help and useful advice.
+Thanks to the [awesome repo](https://github.com/wenhwu/awesome-remote-sensing-change-detection) of [wenhwu](https://github.com/wenhwu), I couldn't have finished my experiments without these carefully collected datasets. A considerable portion of this work actually referred to the open source community, for which I'd like to thank all these authors. Also, I would like to thank Xie Yachao and Xia Yu for their kind help and useful advice.
+
+## License
+
+This repo is based on [the "Anti 996" License](./LICENSE)
+
+## Change Logs
+
++ 2019.11.8 Now it is possible to run the program on a single pair of images.
 
 ---
 Contributions and suggestions are highly welcomed. Let's work together!
