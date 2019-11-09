@@ -1,10 +1,10 @@
 # MATLAB Toolbox for Remote Sensing Change Detection
 
-This repository includes a `MATLAB` toolbox for **remote sensing change detection** wherein several classical methods are implemented. I'm working on building an open-source, end-to-end, and extensible benchmark framework for the convenience of the RSCD research.
+This repository includes a MATLAB toolbox for **remote sensing change detection** wherein several classical methods are implemented. I'm working on building an open-source, end-to-end, and extensible benchmark framework for the convenience of the RSCD research.
 
 ## Overview
 
-Generally, a typical RSCD process can be divided into four steps, namely image pre-processing, change detection, binarization (thresholding) and accuracy evaluation. Currently, the toolbox is mainly based on the final three steps. For ease of usage and maintenance, the toolbox adopted modular design, which was realized by packages and classes in `MATLAB` semantics.
+Generally, a typical RSCD process can be divided into four steps, namely image pre-processing, change detection, binarization (thresholding) and accuracy evaluation. Currently, the toolbox is mainly based on the final three steps. For ease of usage and maintenance, the toolbox adopted modular design, which was realized by packages and classes in MATLAB semantics.
 
 - The `Datasets` package holds several classes of change detection datasets.
 - `Algorithms` collects the change detection methods to yield a difference image.
@@ -15,7 +15,7 @@ Each of these packages contains replaceable *modules* and the modules from diffe
 
 ## Dependencies and Environment
 
-The toolbox is developed and tested in `MATLAB R2017b`.
+The toolbox is developed and tested in MATLAB R2017b.
 
 ## Getting Started
 
@@ -136,9 +136,9 @@ This toolbox is designed in modules such that you can easily extend it for a spe
 
 Thanks to the [awesome repo](https://github.com/wenhwu/awesome-remote-sensing-change-detection) of [wenhwu](https://github.com/wenhwu), I couldn't have finished my experiments without these carefully collected datasets. A considerable portion of this work actually referred to the open source community, for which I'd like to thank all these authors. Also, I would like to thank Xie Yachao and Xia Yu for their kind help and useful advice.
 
-## License
+## Licenses
 
-This repo is based on [the "Anti 996" License](./LICENSE)
+This repo is mostly based on [the "Anti 996" License](./LICENSE) and the scripts of reading `ENVI` files, `+Datasets/+Loaders/private/envidataread.m` and `+Datasets/+Loaders/private/envihdrread.m`, are under [the MIT license](./+Datasets/+Loaders/private/LICENSE).
 
 ## Change Logs
 
