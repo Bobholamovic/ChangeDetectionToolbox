@@ -88,7 +88,7 @@ To start, download the dataset from [here](http://web.eee.sztaki.hu/remotesensin
 
 Unzip the dataset, and you will get a folder named `SZTAKI_AirChange_Benchmark`.
 
-Open `main.m` in your MATLAB editor and find `DATASET` in line 35. As you'd expect, we should set it to `AirChangeDataset`. Then, find the `CONFIG_DATASET` term in line 40. Change the first string within the braces to the absolute path of the unzipped dataset. For example, in my case this should be `D:\data\CD\Air Change dataset\SZTAKI_AirChange_Benchmark`.
+Open `main.m` in your MATLAB editor and find `DATASET` in line 35. As you'd expect, we should set it to `'AirChangeDataset'`. Then, find the `CONFIG_DATASET` term in line 40. Change the first string within the braces to the absolute path of the unzipped dataset. For example, in my case this should be `'D:\data\CD\Air Change dataset\SZTAKI_AirChange_Benchmark'`.
 
 In lines 34-37, we are able to select the modules. Please check more details in [step 2](#step-2). For a simple test, you can just leave them as they are.
 
@@ -157,6 +157,7 @@ This repo is mostly based on [the "Anti 996" License](./LICENSE) and the scripts
 ## Change Logs
 
 + 2019.11.8 Now it is possible to run the program on a single pair of images.
++ 2019.12.13 Add a typical use case of the program as suggested in [#2](https://github.com/Bobholamovic/ChangeDetectionToolbox/issues/2).
 
 ---
 Contributions and suggestions are highly welcomed. Let's work together!
