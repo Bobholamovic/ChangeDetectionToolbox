@@ -80,6 +80,20 @@ Here are some visualized results
 
 ![roc](./.demo/roc.png)
 
+## Demo on AirChange Dataset
+
+Here is a specific example with respect to the SZTAKI AirChange Benchmark set.
+
+To start, download the dataset from [here](http://web.eee.sztaki.hu/remotesensing/airchange_benchmark.html). As notified on the page, you may have to e-mail the author in order to get the password.
+
+Unzip the dataset, and you will get a folder named `SZTAKI_AirChange_Benchmark`.
+
+Open `main.m` in your MATLAB editor and find `DATASET` in line 35. As you'd expect, we should set it to `AirChangeDataset`. Then, find the `CONFIG_DATASET` term in line 40. Change the first string within the braces to the absolute path of the unzipped dataset. For example, in my case this should be `D:\data\CD\Air Change dataset\SZTAKI_AirChange_Benchmark`.
+
+In lines 34-37, we are able to select the modules. Please check more details in [step 2](#step-2). For a simple test, you can just leave them as they are.
+
+More configuration items can be found from line 5 to line 22. By default, all possible visualization results, including the difference image, the change map, the prettified map, and the ROC curve, will be displayed after each pair is processed. You can toggle the switches (by changing `true` to `false` or vice versa) to disable or enable the outputs. When `GO_PAUSE_MODE` is set to 1 (the default behavior), iterations will not go on until all the opened figures are closed.
+
 ## Available Lists
 
 ### Datasets
