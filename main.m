@@ -15,9 +15,9 @@ GO_SAVE_RESULTS = false;
 GO_OUT_FILE_PATH = './results.xls';		% Path to save the results
 
 % PAUSE MODES:
-% -1: resume next iteration when all figures closed; 
+% -1: resume next iteration when all figures closed;
 % -2: press any key to continue
-GO_PAUSE_MODE = 1;  
+GO_PAUSE_MODE = 1;
 
 PAUSE_EACH_ITER_ = GO_SHOW_CHANGE | GO_SHOW_MASK | GO_SHOW_PRETTIFIED | GO_SHOW_ROC_CURVE;
 
@@ -59,7 +59,7 @@ metrics = cell(1, nMetrics);
 for ii = 1:nMetrics
     metrics{ii} = Metrics.(METRICS{ii})(CONFIG_METRICS{ii}{:});
 end
-                
+
 %% Main loop
 while(iterDS.hasNext())
     % Fetch data

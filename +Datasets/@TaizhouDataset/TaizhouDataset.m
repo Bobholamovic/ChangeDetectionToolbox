@@ -19,7 +19,7 @@ classdef TaizhouDataset < Datasets.CDDataset
                 obj.loaders.ref = {@Datasets.Loaders.bmpLoader, @Datasets.Loaders.bmpLoader};
                 obj.refList = {{fullfile(obj.dataPath, 'TaizhouChange_blackWhite.bmp'), ...
                     fullfile(obj.dataPath, 'TaizhouChange_blackWhite_unchange.bmp')}...
-                };
+                    };
             else
                 obj.loaders.ref = @Datasets.Loaders.bmpLoader;
                 obj.refList = {fullfile(obj.dataPath, 'TaizhouChange_blackWhite.bmp')};

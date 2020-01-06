@@ -4,7 +4,7 @@ classdef OSCDDataset < Datasets.CDDataset
             obj@Datasets.CDDataset(data_path);
             
             obj.refStr = 'Onera Satellite Change Detection dataset';
-
+            
             obj.loaders.ref = @Datasets.Loaders.tiffLoader;  % Use .tif labels
             %
             % For test phase declare a new subclass that extends

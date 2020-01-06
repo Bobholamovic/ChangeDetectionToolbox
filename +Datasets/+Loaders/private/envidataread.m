@@ -113,7 +113,7 @@ fread(fid,info.header_offset,'uint8',0,machine); %we skip the header
 if ~iscx
     if strcmp(info.file_type, 'ENVI Classification')
         D = fread(fid,n,'uint8',0,machine);
-    else 
+    else
         D = fread(fid,n,format,0,machine); %alternatively, multibandreader (matlab function) might be used
     end
 else
@@ -121,7 +121,7 @@ else
     D = complex(D(1:2:end),D(2:2:end));
 end
 fclose(fid);
-    
+
 switch lower(info.interleave)
     case {'bsq'}
         D = reshape(D,[info.samples,info.lines,info.bands]);

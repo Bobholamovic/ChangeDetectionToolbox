@@ -1,4 +1,4 @@
-classdef FMeasure < Metrics.Recall & Metrics.UA  
+classdef FMeasure < Metrics.Recall & Metrics.UA
     properties (Access=public)
         alpha = 1;
     end

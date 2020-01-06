@@ -8,7 +8,7 @@ classdef (Abstract) CDMetric < handle
         avg;
         sum;
     end
-        
+    
     methods
         function obj = CDMetric()
             reset(obj);
@@ -96,7 +96,7 @@ classdef (Abstract) CDMetric < handle
             end
             pf = sum(gnd(:));
         end
- 
+        
         function nf = getNF(gnd)
             % Negative facts
             if ndims(gnd) == 3
@@ -109,7 +109,7 @@ classdef (Abstract) CDMetric < handle
             % Get the number of positive predictions
             pp = sum(pred(:));
         end
-            
+        
         function np = getNP(pred)
             % Negative predictions
             np = sum(~pred(:));

@@ -59,11 +59,11 @@ classdef AUC < Metrics.CDMetric
             % called
             fig = figure('Name', 'ROC Curve');
             plot(obj.fprs, obj.tprs, 'b-', 'LineWidth', 2, varargin{:});
-            grid on, 
-            title(sprintf('AUC=%.4f', obj.val(end))), 
-            xlabel('FPR'), 
+            grid on,
+            title(sprintf('AUC=%.4f', obj.val(end))),
+            xlabel('FPR'),
             ylabel('TPR'),
-            hold on, 
+            hold on,
             plot([0.0, 1.0], [0.0, 1.0], '--k'),
             hold off;
         end

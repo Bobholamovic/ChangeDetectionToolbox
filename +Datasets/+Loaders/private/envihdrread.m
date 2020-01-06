@@ -54,7 +54,7 @@ function info = envihdrread(hdrfile)
 % ihowat@apl.washington.edu
 % Version 1: 19-Jul-2007 00:50:57
 % Modified by Felix Totir
-% 
+%
 
 fid = fopen(hdrfile);
 while true
@@ -74,7 +74,7 @@ while true
                         
                         %for polSARpro
                         if line == -1
-                           break;
+                            break;
                         end
                         value = [value,strtrim(line)];
                     end
@@ -118,20 +118,20 @@ if isfield(info,'map_info')
     
     %part below comes form the original enviread
     %% Make geo-location vectors
-%     xi = info.map_info.image_coords(1);
-%     yi = info.map_info.image_coords(2);
-%     xm = info.map_info.mapx;
-%     ym = info.map_info.mapy;
-%     %adjust points to corner (1.5,1.5)
-%     if yi > 1.5
-%         ym =  ym + ((yi*info.map_info.dy)-info.map_info.dy);
-%     end
-%     if xi > 1.5
-%         xm = xm - ((xi*info.map_info.dy)-info.map_info.dx);
-%     end
-%     
-%     info.x= xm + ((0:info.samples-1).*info.map_info.dx);
-%     info.y = ym - ((0:info.lines-1).*info.map_info.dy);
+    %     xi = info.map_info.image_coords(1);
+    %     yi = info.map_info.image_coords(2);
+    %     xm = info.map_info.mapx;
+    %     ym = info.map_info.mapy;
+    %     %adjust points to corner (1.5,1.5)
+    %     if yi > 1.5
+    %         ym =  ym + ((yi*info.map_info.dy)-info.map_info.dy);
+    %     end
+    %     if xi > 1.5
+    %         xm = xm - ((xi*info.map_info.dy)-info.map_info.dx);
+    %     end
+    %
+    %     info.x= xm + ((0:info.samples-1).*info.map_info.dx);
+    %     info.y = ym - ((0:info.lines-1).*info.map_info.dy);
 end
 
 if isfield(info,'coordinate_system_string')
@@ -188,7 +188,7 @@ if isfield(info,'coordinate_system_string')
         info.coordinate_system.UNITGeo = extractAfter(line{8},4);
         info.coordinate_system.UNITGeo_value = line{9};
     end
-
+    
 end
 
 

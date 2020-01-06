@@ -1,4 +1,4 @@
-classdef Kappa < Metrics.OA 
+classdef Kappa < Metrics.OA
     methods
         function obj = Kappa()
             obj@Metrics.OA();

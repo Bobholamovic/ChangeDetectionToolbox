@@ -9,7 +9,7 @@ dididadida
  + [x] Read `ENVI` `*.img` file directly 
  + [ ] Pre-processing methods
  + [ ] Benchmark script
- + [ ] Extend `MAD` and `IRMAD` to handle more complex cases, e.g., inputs with inconsistent channels
+ + [x] Extend `MAD` and `IRMAD` to handle more complex cases, e.g., inputs with inconsistent channels
  + [ ] Adaptively select `k` for algorithms such as `PCDA` according to the contribution rate
  + [x] Script to process a single image pair
  + [x] Folder (a Dataset) to process a folder

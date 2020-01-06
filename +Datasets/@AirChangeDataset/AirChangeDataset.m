@@ -31,7 +31,7 @@ classdef AirChangeDataset < Datasets.CDDataset
                 obj.t1List{end+1} = fullfile(dirStr, 'im1.bmp');
                 obj.t2List{end+1} = fullfile(dirStr, 'im2.bmp');
                 obj.refList{end+1} = fullfile(dirStr, 'gt.bmp');
-            end  
+            end
         end
     end
 end
