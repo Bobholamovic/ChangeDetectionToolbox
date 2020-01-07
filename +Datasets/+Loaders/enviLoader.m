@@ -1,6 +1,6 @@
 function [im, info] = enviLoader(im_path)
 % Slightly modified on https://github.com/ZjxRS/ImageProcess/tree/master/Matlab/ENVI_ReadAndWrite
-% 
+%
 %Original version by Ian Howat, Ohio State Universtiy, ihowat@gmail.com
 %Thanks to Yushin Ahn and Ray Jung
 %Heavily modified by Felix Totir.

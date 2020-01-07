@@ -1,4 +1,4 @@
-classdef UA < Metrics.CDMetric   
+classdef UA < Metrics.CDMetric
     methods
         function obj = UA()
             % User's accuracy

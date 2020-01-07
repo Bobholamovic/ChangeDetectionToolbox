@@ -1,4 +1,4 @@
 function nothing = emptyLoader(~)
-    % Load nothing
-    nothing = [];
+% Load nothing
+nothing = [];
 end

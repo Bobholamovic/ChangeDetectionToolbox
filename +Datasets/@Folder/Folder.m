@@ -12,13 +12,13 @@ classdef Folder < Datasets.CDDataset
         function initFileSys(obj)
             % Note that in this initial version, Folder will process
             % ALL non-dir files with any extension name in the subdirs
-            % 
+            %
             % Note that the correspondance is deduced from the alphabetical
             % order of the files inside each subdir, which means that you
-            % have to ensure when files in a folder are sorted 
+            % have to ensure when files in a folder are sorted
             % alphabetically, then the first readable file in t1 subdir
             % corresponds to the first one in t2 subdir, and also the first
-            % one in gt subdir, etc. 
+            % one in gt subdir, etc.
             listingT1 = dir(fullfile(obj.dataPath, obj.dirT1));
             listingT2 = dir(fullfile(obj.dataPath, obj.dirT2));
             listingGT = dir(fullfile(obj.dataPath, obj.dirGT));

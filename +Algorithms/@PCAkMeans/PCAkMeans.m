@@ -15,7 +15,7 @@ classdef PCAkMeans < Algorithms.CDAlg
                 'in IEEE Geoscience and Remote Sensing Letters, ',...
                 'vol. 6, no. 4, pp. 772-776, Oct. 2009.']...
                 );
-            if exist('bs', 'var'), obj.blockSize = bs; end  
+            if exist('bs', 'var'), obj.blockSize = bs; end
             if exist('df', 'var'), obj.dimFeats = df; end
             
             % The original work contains this

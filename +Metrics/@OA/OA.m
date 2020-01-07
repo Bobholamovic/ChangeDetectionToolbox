@@ -1,4 +1,4 @@
-classdef OA < Metrics.CDMetric 
+classdef OA < Metrics.CDMetric
     % Overall accuracy
     methods (Access=public)
         function acc = gauge(obj, pred, gnd, ~)
