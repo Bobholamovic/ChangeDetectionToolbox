@@ -13,7 +13,8 @@ dididadida
  + [ ] Adaptively select `k` for algorithms such as `PCDA` according to the contribution rate
  + [x] Script to process a single image pair
  + [x] Folder (a Dataset) to process a folder
- + [ ] Graphic user interface
+ + [x] Graphic user interface
  + [ ] Image savers?
  + [ ] Add more CD algorithms
  + [ ] Implement the interface of more datasets
+ + [ ] Fix division-by-zero error in metrics

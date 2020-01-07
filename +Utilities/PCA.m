@@ -14,7 +14,7 @@ sigma = cov(flat);
 
 [v, e] = eig(sigma);
 % Eigenvalues in descending order
-[e,idx] = sort(diag(e), 'descend');
+[~,idx] = sort(diag(e), 'descend');
 v = v(:,idx);
 
 % Sum of correlations between im and pcs positive

@@ -19,12 +19,12 @@ sigma22 = sigma(chns1+1:end, chns1+1:end);
 e1 = sqrt(diag(e1));
 [b, e2] = eig(sigma21 / sigma11 * sigma12, sigma22);
 e2 = sqrt(diag(e2));
-[e1, idx1] = sort(e1, 'descend');
-a = a(:,idx1);  % Sort the vectors in ascending order of eigenvalues
-a = a(:,1:chns);
-[e2, idx2] = sort(e2, 'descend');
+[~, idx1] = sort(e1, 'descend');
+a = a(:,idx1);
+a = a(:,chns:-1:1); % My choice is simply to drop the part of (q-p)
+[~, idx2] = sort(e2, 'descend');
 b = b(:,idx2);
-b = b(:,1:chns);
+b = b(:,chns:-1:1);
 
 % Normalize a for unit dispersion
 % Ensure that a'*s11*a=I to meet the constraints
