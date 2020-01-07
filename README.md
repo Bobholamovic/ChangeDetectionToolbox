@@ -31,6 +31,13 @@ See the usage of `detectChange.m` by
 help detectChange
 ```
 
+Alternatively, try
+```MATLAB
+cd UI
+run guiCD.m
+```
+
+to enable the visual interface.
 
 To try full functionality, find the main script `main.m` in the root directory of this repo, and follow the three steps below:
 
@@ -158,6 +165,7 @@ This repo is mostly based on [the "Anti 996" License](./LICENSE) and the scripts
 
 + 2019.11.8 Now it is possible to run the program on a single pair of images.
 + 2019.12.13 Add a typical use case of the program as suggested in [#2](https://github.com/Bobholamovic/ChangeDetectionToolbox/issues/2).
++ 2020.1.7 Now MAD and IR-MAD support inputs with different channel numbers and a crude graphical interface is implemented to facilitate visualization.
 
 ---
 Contributions and suggestions are highly welcomed. Let's work together!
