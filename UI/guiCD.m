@@ -1,4 +1,5 @@
 %% A very simple Graphic User Interface for basic usage
+function guiCD
 addpath('../');
 
 
@@ -174,7 +175,7 @@ setappdata(fig, 'handles', handles);
 
 % Show the image
 set(fig, 'Visible', 'on');
-
+end
 
 %% Callback functions
 function loadButtonPushed(src, event, axes_)
