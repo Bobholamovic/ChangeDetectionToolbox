@@ -23,7 +23,7 @@ For a quick start, use `detectChange.m`. Here are some examples.
 ```MATLAB
 [CM, DI] = detectChange('CVA', {}, 'KMeans', {}, 'data/2000TM', 'data/2003TM')
 
-[CMs, DIs, results] = detectChange('MAD', {}, 'OTSU', {}, '2000TM.tif', '2003TM.tif', 'gt.png', {'AUC', 'UA'}, {{}, {}})
+[CM, DI, results] = detectChange('MAD', {}, 'OTSU', {}, '2000TM.tif', '2003TM.tif', 'gt.png', {'AUC', 'UA'}, {{}, {}})
 ```
 
 See the usage of `detectChange.m` by
@@ -139,7 +139,7 @@ Otsu's method | OTSU
 Metric | Name
 :-:|:-:
 Area under the curve | AUC
-F-Measure | FMeasure
+F-measure | FMeasure
 Cohen's kappa coefficient | Kappa
 Overall accuracy | OA
 Recall rate | Recall
