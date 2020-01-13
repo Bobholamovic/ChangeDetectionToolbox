@@ -1,6 +1,6 @@
 # MATLAB Toolbox for Remote Sensing Change Detection
 
-This repository includes a MATLAB toolbox for **remote sensing change detection** wherein several classical methods are implemented. I'm working on building an open-source, end-to-end, and extensible benchmark framework for the convenience of the RSCD research.
+This repository includes a MATLAB toolbox for **remote sensing change detection** (RSCD) wherein several classical methods are implemented. I'm working on building an open-source, end-to-end, and extensible benchmark framework for the convenience of the RSCD research.
 
 ## Overview
 
@@ -121,9 +121,10 @@ Change Vector Analysis | CVA | [paper](https://www.researchgate.net/publication/
 Differential Principal Component Analysis | DPCA | [paper](https://www.tandfonline.com/doi/full/10.1080/01431160801950162)
 Image differencing | ImageDiff | [paper](https://www.researchgate.net/publication/239063613_Digital_change_detection_techniques_using_remotely_sensed_data)
 Image ratioing | ImageRatio | [paper](https://www.researchgate.net/publication/235245895_Change_Detection_Techniques)
+Image regression | ImageRegr | [paper](https://www.researchgate.net/publication/235245895_Change_Detection_Techniques)
 Iteratively Reweighted MAD | IRMAD | [paper](https://www.researchgate.net/publication/6534331_The_Regularized_Iteratively_Reweighted_MAD_Method_for_Change_Detection_in_Multi-_and_Hyperspectral_Data)
 Multivariate Alteration Detection | MAD | [paper](https://www.researchgate.net/publication/222491847_Multivariate_Alteration_Detection_MAD_and_MAF_Postprocessing_in_Multispectral_Bitemporal_Image_Data_New_Approaches_to_Change_Detection_Studies)
-PCA k-Means | PCAkMeans | [paper](https://ieeexplore.ieee.org/document/5196726)
+PCA k-means | PCAkMeans | [paper](https://ieeexplore.ieee.org/document/5196726)
 Principal Component Differential Analysis | PCDA | [paper](https://www.researchgate.net/publication/223591130_Remote_sensing_research_issues_of_the_National_Land_Use_Change_Program_of_China)
 
 ### Thresholding Algorithms
@@ -131,7 +132,7 @@ Principal Component Differential Analysis | PCDA | [paper](https://www.researchg
 Algorithm | Name
 :-:|:-:
 Using a fixed threshold | FixedThre
-k-Means clustering | KMeans
+K-means clustering | KMeans
 Otsu's method | OTSU
 
 ### Metrics
