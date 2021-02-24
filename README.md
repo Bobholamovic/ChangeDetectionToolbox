@@ -169,4 +169,4 @@ This repo is mostly based on [the "Anti 996" License](./LICENSE) and the scripts
 + 2020.1.7 Now MAD and IR-MAD support inputs with different channel numbers and a crude graphical interface is implemented to facilitate visualization.
 
 ---
-Contributions and suggestions are highly welcomed. Let's work together!
+Contributions and suggestions are highly welcome. Let's work together!
